@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="{% static '/css/styles.css' %}"> -->
+        <title>Inicio</title>
+
+        <style>
+            img{
+                width: 50%;
+                height: 50%;          
+            }
+            span{
+                color: rgb(187, 186, 186);
+            }
+
+            footer, span{
+                text-align: center;
+                display: block;
+            }
+            h1{
+                font-size: 25px !important;
+                color:#596275;
+            }
+
+        
+        </style>
+</head>
+
+<body>
+
+
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{%url 'home'%}">Biblioteca</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'home'%}">Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_prestamos'%}">Prestamos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_usuarios'%}">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_libros'%}">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_autores'%}">Autores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="mt-4">Bienvenidos a la Aplicación Biblioteca</h1>
+
+            </div>
+        </div>
+
+
+        <div class="row mt-5">
+
+            <div class="card text-center col-4 " style="height: 18rem;">
+                <img src="{% static '/img/list.svg' %}" class="card-img-top mt-4" alt="...">
+                <div class="card-body">
+
+                  <a href="{%url 'listar_prestamos'%}" class="btn btn-dark ">Listar Prestamos</a>
+                </div>
+            </div>
+              
+            <div class="card text-center col-4" style="height: 18rem;">
+                <img src="{% static '/img/user.svg' %}" class="card-img-top mt-4" alt="...">
+                <div class="card-body">
+                  
+                  <a href="{%url 'listar_usuarios'%}" class="btn btn-dark ">Listar Usuario</a>
+                </div>
+            </div>
+
+            <div class="card text-center col-4" style="height: 18rem;">
+                <img src="{% static '/img/books.svg' %}" class="card-img-top mt-4" alt="...">
+                <div class="card-body">
+              
+                  <a href="{%url 'listar_libros'%}" class="btn btn-dark ">Listar Libros</a>
+                </div>
+            </div>
+
+        </div>
+
+           
+    </div>
+
+    <div class="container mt-5">
+        <footer>
+            <span> Copyright © 2020 - Anyi Jimenez y Zuleidy Yaruro Orozco</span>
+            <span>FUP-Créditos Libres III</span>
+            
+        </footer>
+    </div>
+
+</body>
+
+</html>

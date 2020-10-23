@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Listar Autor</title>
+
+    <style>
+        span {
+            color: rgb(187, 186, 186);
+        }
+
+        footer,
+        span {
+            text-align: center;
+            display: block;
+        }
+        h3{
+                font-size: 25px !important;
+                color:#596275;
+            }
+        
+        
+    </style>
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{%url 'home'%}">Biblioteca</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'home'%}">Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_prestamos'%}">Prestamos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_usuarios'%}">Usuarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_libros'%}">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'listar_autores'%}">Autores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="mt-4">Lista de Autores</h3>
+
+                <div class="">
+                    <div class="card-body mb-n4 mt-n2">
+                        <p class="mt-2 float-left"><a href="{%url 'crear_autor'%}"class="p-2 bg-success text-white rounded ">Agregar Autor</a></p>
+                    
+                        <form class="form-inline float-right">
+                            
+                            <div class="form-group mx-sm-3">
+                              <label for="inputPassword2" class="sr-only">Password</label>
+                              <input type="password" class="form-control" id="inputPassword2" placeholder="Ingresar Palabra Clave">
+                            </div>
+                            <button type="submit" class="btn btn-success ">Buscar</button>
+                          </form>
+                    </div>
+                  </div>
+
+                
+                
+            </div>
+        </div>
+
+        <div class="container mt-3">
+
+            <table class="table table-hover">
+                <thead>
+
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Nacionalidad</th>
+                        
+
+                        <!-- <th scope="col">Fecha N.</th> -->
+                        <th scope="col">Actions</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        
+                    </tr>
+                </thead>
+                <tbody id="cars-tbody mb-n3">
+
+                    {%for elemento in lista%}
+                         <tr>
+                            <td>{{elemento.id}}</td>
+                            <td>{{elemento.nombre}}</td>
+                            <td>{{elemento.nacionalidad}}</td>
+                           
+                        
+                            <!-- <td>{{elemento.fecha_nacimiento}}</td> -->
+                            <td><a href="{%url 'actualizar_autor' elemento.id%}" class="p-2 bg-warning text-white rounded ">Update</a></td>
+                            <td><a href="{%url 'eliminar_autor' elemento.id%}" class=" p-2 bg-danger text-white rounded ">Eliminar</a></td>
+                            
+                        </tr>
+                        {%endfor%}
+                        
+                        
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="container mt-3">
+        <footer>
+            <span> Copyright © 2020 - Anyi Jimenez y Zuleidy Yaruro Orozco</span>
+            <span>FUP-Créditos Libres III</span>
+
+        </footer>
+    </div>
+</body>
+
+</html>
